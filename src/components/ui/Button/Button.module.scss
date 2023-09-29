@@ -1,0 +1,11 @@
+@import "@/styles/functions";
+@import "@/styles/variables";
+
+.button {
+  cursor: pointer;
+  font-size: px(14);
+  color: $white;
+  background-color: $secondary;
+  padding: px(4) px(8);
+  border-radius: $border-radius;
+}

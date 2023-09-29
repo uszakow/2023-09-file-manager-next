@@ -1,0 +1,14 @@
+@import "@/styles/functions";
+
+.photo-frame {
+  width: 320px;
+  aspect-ratio: 4/3;
+  border: 1px solid black;
+  background-color: grey;
+
+  &__panel {
+    position: absolute;
+    bottom: px(8);
+    width: 100%;
+  }
+}

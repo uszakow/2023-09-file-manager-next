@@ -1,0 +1,50 @@
+$baseValue: 0.25rem;
+$spacingProperties: (
+  "m": "margin",
+  "p": "padding",
+);
+$spacingDirection: (
+  "t": "top",
+  "r": "right",
+  "b": "bottom",
+  "l": "left",
+);
+
+@each $abbrName, $name in $spacingProperties {
+  @each $abbrDirection, $direction in $spacingDirection {
+    @for $i from 1 through 10 {
+      .#{$abbrName}-#{$i} {
+        #{$name}: $baseValue * $i;
+      }
+
+      .#{$abbrName}#{$abbrDirection}-#{$i} {
+        #{$name}-#{$direction}: $baseValue * $i;
+      }
+
+      @if $abbrDirection == "l" {
+        .#{$abbrName}x-#{$i} {
+          #{$name}-left: $baseValue * $i;
+          #{$name}-right: $baseValue * $i;
+        }
+
+        .#{$abbrName}y-#{$i} {
+          #{$name}-top: $baseValue * $i;
+          #{$name}-bottom: $baseValue * $i;
+        }
+      }
+    }
+
+    @if $abbrName == "m" and ($abbrDirection == "l" or $abbrDirection == "r") {
+      .#{$abbrName}#{$abbrDirection}-auto {
+        #{$name}-#{$direction}: auto;
+      }
+    }
+  }
+
+  @if $abbrName == "m" {
+    .#{$abbrName}-auto {
+      #{$name}-left: auto;
+      #{$name}-right: auto;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import "@/styles/display";
+@import "@/styles/spacing";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.relative {
+  position: relative;
+}
