@@ -20,7 +20,19 @@ export const PhotoCreator: React.FC = () => {
 
     try {
       const userStream = await navigator.mediaDevices.getUserMedia({
-        video: true,
+        video: {
+          width: {
+            min: 320,
+            ideal: 650,
+            max: 1280
+          },
+          height: {
+            min: 240,
+            ideal: 480,
+            max: 960
+          },
+          facingMode: "environment"
+        },
         audio: false
       });
 
@@ -58,8 +70,6 @@ export const PhotoCreator: React.FC = () => {
       canvas.current.height = video.current.videoHeight;
       canvas.current.getContext('2d')?.drawImage(video.current, 0, 0);
       setPhotoUrl(canvas.current.toDataURL('image/jpeg'));
-
-      console.log(canvas.current.toDataURL('image/jpeg'));
     }
   };
 
